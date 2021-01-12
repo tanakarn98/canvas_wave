@@ -6,7 +6,7 @@ function init() {
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
 
-    var imagePath = "./sample.png";
+    var imagePath = "./white.png";
     var image = new Image();
     image.src = imagePath;
 
