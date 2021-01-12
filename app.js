@@ -6,13 +6,13 @@ function init() {
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
 
-    var imagePath = "./sample.jpg";
+    var imagePath = "./sample.png";
     var image = new Image();
     image.src = imagePath;
 
     //set canvas width and height
     canvas.width = Number(window.innerWidth);
-    canvas.height = Number(canvas.width / 2);
+    canvas.height = 40;
     image.onload = function () {
       initDraw();
       loop();
@@ -20,9 +20,9 @@ function init() {
 
     var canvasEndX = canvas.width;
     var canvasEndY = canvas.height;
-    var waveStartPoint = canvasEndY - 150;
+    var waveStartPoint = canvasEndY - 20;
 
-    var amplitude = 30;
+    var amplitude = 20;
     var period = 600;
     var degree = 0;
 
@@ -73,7 +73,8 @@ function init() {
 
     function waveDrawing(waveStartPoint, canvasEndX, canvasEndY, deg, am, tp) {
       var waveStartY = waveStartPoint;
-      ctx.globalCompositeOperation = "destination-out";
+      ctx.globalCompositeOperation = "copy";
+
       ctx.beginPath();
       ctx.moveTo(0, waveStartY);
 
@@ -86,7 +87,8 @@ function init() {
       ctx.lineTo(0, canvasEndY);
       ctx.closePath();
 
-      ctx.fillStyle = "rgba(255,255,255,1)"; //opacity 1
+      // ctx.fillStyle = "rgba(255,255,255,1)"; //opacity 1
+      ctx.fillStyle = "#7fbec7";
       ctx.fill();
     }
   }
